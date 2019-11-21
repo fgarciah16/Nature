@@ -2,8 +2,6 @@ package vistas;
 
 import java.awt.Dimension;
 //import static java.awt.EventQueue.invokeLater;
-import static java.util.logging.Level.SEVERE;
-import static java.util.logging.Logger.getLogger;
 import javax.swing.JInternalFrame;
 //import static javax.swing.UIManager.getInstalledLookAndFeels;
 //import static javax.swing.UIManager.setLookAndFeel;
@@ -70,7 +68,7 @@ public class PrincipalDirectivo extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("SISTEMA DE INVENTARIO ");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 10, 690, 20));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 10, 440, 20));
 
         jPanel3.setBackground(new java.awt.Color(0, 153, 153));
         jPanel3.setForeground(new java.awt.Color(153, 0, 51));
@@ -94,18 +92,18 @@ public class PrincipalDirectivo extends javax.swing.JFrame {
         jLabel2.setForeground(new java.awt.Color(0, 153, 153));
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("Nature Baby");
-        jPanel4.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 50, 790, -1));
+        jPanel4.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 60, 360, -1));
 
         jLabel5.setFont(new java.awt.Font("Harlow Solid Italic", 1, 30)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(0, 153, 153));
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel5.setText("Lo Mejor Para Tu Bebe");
-        jPanel4.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 130, 770, -1));
+        jPanel4.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 160, 550, -1));
 
         jLabel3.setBackground(new java.awt.Color(0, 153, 153));
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Nature2.jpg.jpeg"))); // NOI18N
-        jPanel4.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 240, 740, -1));
+        jPanel4.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 270, 450, -1));
 
         VentanaPrincipal.setLayer(jPanel4, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
@@ -113,7 +111,7 @@ public class PrincipalDirectivo extends javax.swing.JFrame {
         VentanaPrincipal.setLayout(VentanaPrincipalLayout);
         VentanaPrincipalLayout.setHorizontalGroup(
             VentanaPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, 981, Short.MAX_VALUE)
         );
         VentanaPrincipalLayout.setVerticalGroup(
             VentanaPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

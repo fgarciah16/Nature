@@ -181,8 +181,8 @@ public class Correo extends javax.swing.JFrame {
 
         Session sesion = Session.getDefaultInstance(propiedad);
 
-        String correoEnvia = "telesecundariasantarosa01@gmail.com";
-        String contrasena = "20DTV0817B";
+        String correoEnvia = "fgarciahernandez2@gmail.com";
+        String contrasena = "1998FGH-";
         String destinatario = txtRecibe.getText();
         String asunto = txtAsunto.getText();
         String mensaje = txtMensaje.getText();
@@ -235,33 +235,33 @@ public class Correo extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
 
-        JFileChooser dlg = new JFileChooser();
-        int option = dlg.showOpenDialog(this);
-        if (option == JFileChooser.APPROVE_OPTION) {
-            arch = dlg.getSelectedFile().getPath();
-            nom = dlg.getSelectedFile().getName();
-            ruta.setVisible(true);
-            ruta.setText(arch);
-            ruta.setEditable(false);
-        }
+//        JFileChooser dlg = new JFileChooser();
+//        int option = dlg.showOpenDialog(this);
+//        if (option == JFileChooser.APPROVE_OPTION) {
+//            arch = dlg.getSelectedFile().getPath();
+//            nom = dlg.getSelectedFile().getName();
+//            ruta.setVisible(true);
+//            ruta.setText(arch);
+//            ruta.setEditable(false);
+//        }
     }//GEN-LAST:event_jButton2ActionPerformed
     void limpiarcampo() {
-        txtRecibe.setText("");
-        txtAsunto.setText("");
-        txtMensaje.setText("");
-        ruta.setText("");
+//        txtRecibe.setText("");
+//        txtAsunto.setText("");
+//        txtMensaje.setText("");
+//        ruta.setText("");
     }
 
     void agregar() {
-        String destino = txtRecibe.getText();
-        String asunto = txtAsunto.getText();
-        String fecha = txtFecha.getText();
-
-        Object[] ob = new Object[3];
-        ob[0] = destino;
-        ob[1] = asunto;
-        ob[2] = fecha;
-       // dao.add(ob);
+//        String destino = txtRecibe.getText();
+//        String asunto = txtAsunto.getText();
+//        String fecha = txtFecha.getText();
+//
+//        Object[] ob = new Object[3];
+//        ob[0] = destino;
+//        ob[1] = asunto;
+//        ob[2] = fecha;
+//       // dao.add(ob);
     }
 
     public static void main(String args[]) {

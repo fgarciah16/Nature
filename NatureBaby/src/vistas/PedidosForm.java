@@ -200,8 +200,6 @@ public class PedidosForm extends javax.swing.JInternalFrame {
             }
         });
 
-        cmb_idgrado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "id_grado" }));
-
         btnNuevo.setFont(new java.awt.Font("Candara", 0, 14)); // NOI18N
         btnNuevo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/editar.png"))); // NOI18N
         btnNuevo.setText("NUEVO");
@@ -235,9 +233,9 @@ public class PedidosForm extends javax.swing.JInternalFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(cmbgrado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(28, 28, 28)
-                        .addComponent(cmb_idgrado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(cmb_idgrado, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(txtmateria, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(134, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -265,7 +263,7 @@ public class PedidosForm extends javax.swing.JInternalFrame {
 
             },
             new String [] {
-                "ID", "MATERIA", "GRADO"
+                "1", "2", "3"
             }
         ));
         tabla.addMouseListener(new java.awt.event.MouseAdapter() {

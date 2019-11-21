@@ -230,7 +230,7 @@ public class ProveedorForm extends javax.swing.JInternalFrame {
 
             },
             new String [] {
-                "ID", "NOMBRE COMPLETO", "OCUPACION", "DIRECCION", "TELEFONO CELULAR", "TELEFONO CASA", "CORREO"
+                "ID", "NOMBRE COMPLETO", "PRODUCTO", "DIRECCION", "TELEFONO CELULAR", "TELEFONO ", "CORREO"
             }
         ));
         tabla.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_NEXT_COLUMN);

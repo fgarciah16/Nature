@@ -341,10 +341,10 @@
                   <Table columnCount="7" rowCount="0">
                     <Column editable="true" title="ID" type="java.lang.Object"/>
                     <Column editable="true" title="NOMBRE COMPLETO" type="java.lang.Object"/>
-                    <Column editable="true" title="OCUPACION" type="java.lang.Object"/>
+                    <Column editable="true" title="PRODUCTO" type="java.lang.Object"/>
                     <Column editable="true" title="DIRECCION" type="java.lang.Object"/>
                     <Column editable="true" title="TELEFONO CELULAR" type="java.lang.Object"/>
-                    <Column editable="true" title="TELEFONO CASA" type="java.lang.Object"/>
+                    <Column editable="true" title="TELEFONO " type="java.lang.Object"/>
                     <Column editable="true" title="CORREO" type="java.lang.Object"/>
                   </Table>
                 </Property>

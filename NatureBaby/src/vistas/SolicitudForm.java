@@ -152,7 +152,7 @@ public class SolicitudForm extends javax.swing.JInternalFrame {
         tabla = new javax.swing.JTable();
 
         setClosable(true);
-        setTitle("MODULO DE CONTROL DE MATERIAS");
+        setTitle("CONTROL");
 
         jLabel1.setFont(new java.awt.Font("Candara", 0, 14)); // NOI18N
         jLabel1.setText("PRODUCTO");
@@ -274,7 +274,7 @@ public class SolicitudForm extends javax.swing.JInternalFrame {
 
             },
             new String [] {
-                "ID", "MATERIA", "GRADO"
+                "1", "2", ""
             }
         ));
         tabla.addMouseListener(new java.awt.event.MouseAdapter() {

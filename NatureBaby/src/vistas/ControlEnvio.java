@@ -52,7 +52,7 @@ public class ControlEnvio extends javax.swing.JInternalFrame {
 
             },
             new String [] {
-                "MATERIA", "ALUMNO", "PERIODO UNO", "PERIODO DOS", "PERIODO TRES", "PERIODO CUATRO", "PERIODO CINCO", "INASISTENCIAS", "PROMEDIO"
+                "1", "2", "3", "3", "4", "5", "5", "6", "7"
             }
         ));
         tabla.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_NEXT_COLUMN);

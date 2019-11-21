@@ -212,7 +212,7 @@ public class ProductosForm extends javax.swing.JInternalFrame {
 
             },
             new String [] {
-                "ID", "GRADO", "GRUPO", "ALUMNO", "DOCENTE"
+                "1", "2", "3", "4", "5"
             }
         ));
         tabla.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_NEXT_COLUMN);
