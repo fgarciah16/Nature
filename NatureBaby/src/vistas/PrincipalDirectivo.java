@@ -1,8 +1,17 @@
 package vistas;
 
+import com.jtattoo.plaf.fast.FastLookAndFeel;
 import java.awt.Dimension;
+import static java.awt.EventQueue.invokeLater;
+import java.beans.PropertyVetoException;
+import java.util.Properties;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JFrame;
 //import static java.awt.EventQueue.invokeLater;
 import javax.swing.JInternalFrame;
+import javax.swing.JOptionPane;
+import javax.swing.UIManager;
 //import static javax.swing.UIManager.getInstalledLookAndFeels;
 //import static javax.swing.UIManager.setLookAndFeel;
 
@@ -57,8 +66,8 @@ public class PrincipalDirectivo extends javax.swing.JFrame {
 
         jMenu9.setText("jMenu9");
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("SISTEMA DE CONTROL ESCOLAR");
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Nature Baby");
 
         jPanel1.setBackground(new java.awt.Color(0, 153, 153));
         jPanel1.setForeground(new java.awt.Color(0, 153, 153));
@@ -245,22 +254,22 @@ public class PrincipalDirectivo extends javax.swing.JFrame {
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         UsuariosForm usuario = new UsuariosForm();
-        CentrarVentana(usuario);
+        centrarVista(usuario);
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
         ProveedorForm Padre = new ProveedorForm();
-        CentrarVentana(Padre);
+        centrarVista(Padre);
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
         PedidosForm Docente = new PedidosForm();
-        CentrarVentana(Docente);
+        centrarVista(Docente);
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 
     private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
         ProductosForm Usuario = new ProductosForm();
-        CentrarVentana(Usuario);
+        centrarVista(Usuario);
     }//GEN-LAST:event_jMenuItem4ActionPerformed
 
     private void jMenu8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu8MouseClicked
@@ -271,7 +280,7 @@ public class PrincipalDirectivo extends javax.swing.JFrame {
 
     private void jMenuItem9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem9ActionPerformed
         ControlEnvio cpf = new ControlEnvio();
-        CentrarVentana(cpf);
+        centrarVista(cpf);
     }//GEN-LAST:event_jMenuItem9ActionPerformed
 
     private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
@@ -281,20 +290,49 @@ public class PrincipalDirectivo extends javax.swing.JFrame {
         //        CentrarVentana(correo);
     }//GEN-LAST:event_jMenuItem6ActionPerformed
 
-    void CentrarVentana(JInternalFrame frame) {
-        VentanaPrincipal.add(frame);
-        Dimension dimension = VentanaPrincipal.getSize();
-        Dimension Dframe = frame.getSize();
-        frame.setLocation((dimension.width - Dframe.width) / 2, (dimension.height - Dframe.height) / 2);
-        frame.show();
+     private void cerrar(){
+        if (JOptionPane.showConfirmDialog(rootPane, "¿Esta seguro que desea salir?, su sesión será cerrada.",
+                "Cerrar Sesión", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION){
+                    this.dispose();
+                    InicioSistema closeCurrentWindow = new InicioSistema();
+                    closeCurrentWindow.setVisible(true);//Open the new window
+        }else{
+          //cambios
+            this.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+        }
     }
 
+    public void centrarVista(JInternalFrame fr){
+        try {
+            reiniciarVista();
+            VentanaPrincipal.add(fr);
+            Dimension dim = VentanaPrincipal.getSize();
+            Dimension dimForm = fr.getSize();
+            fr.setLocation((dim.width-dimForm.width)/2, (dim.height-dimForm.height)/2);
+            fr.setMaximum(true);
+            
+            fr.setClosable(true);
+            //fr.setIconifiable(true);
+            //fr.setMaximizable(true);
+            //fr.setUI(null);
+            
+            fr.show();
+        } catch (PropertyVetoException ex) {
+            Logger.getLogger(PrincipalDirectivo.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    public void reiniciarVista(){
+        VentanaPrincipal.removeAll();
+        VentanaPrincipal.updateUI();
+    }
+    
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
+        // Set the Nimbus look and feel */
 //        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
 //        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-//         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-//         */
+//         For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html */
+//         
 //        try {
 //            for (javax.swing.UIManager.LookAndFeelInfo info : getInstalledLookAndFeels()) {
 //                if ("Nimbus".equals(info.getName())) {
@@ -315,6 +353,24 @@ public class PrincipalDirectivo extends javax.swing.JFrame {
 //
 //        /* Create and display the form */
 //        invokeLater(() -> {
+        try{
+            
+            Properties props = new Properties();
+            //props.put("logoString", "GRAN VALLE");
+            FastLookAndFeel.setCurrentTheme(props);
+            UIManager.setLookAndFeel("com.jtattoo.plaf.fast.FastLookAndFeel");
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(PrincipalDirectivo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(PrincipalDirectivo.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            Logger.getLogger(PrincipalDirectivo.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            Logger.getLogger(PrincipalDirectivo.class.getName()).log(Level.SEVERE, null, ex);
+            invokeLater(() -> {
+                new InicioSistema().setVisible(true);
+            });
+        }
         new PrincipalDirectivo().setVisible(true);
 //        });
     }

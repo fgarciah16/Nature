@@ -1,8 +1,13 @@
 package vistas;
 
+
 import static java.awt.EventQueue.invokeLater;
+import java.util.Properties;
+import java.util.logging.Level;
 import static java.util.logging.Level.SEVERE;
+import java.util.logging.Logger;
 import static java.util.logging.Logger.getLogger;
+import javax.swing.UIManager;
 import static javax.swing.UIManager.getInstalledLookAndFeels;
 import static javax.swing.UIManager.setLookAndFeel;
 
@@ -246,7 +251,7 @@ public class InicioSistema extends javax.swing.JFrame {
         EmpleadosLogin v = new EmpleadosLogin();
         v.setVisible(true);
         dispose();
-        
+
     }//GEN-LAST:event_btn2ActionPerformed
 
     private void jLabel11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel11MouseClicked
@@ -276,7 +281,7 @@ public class InicioSistema extends javax.swing.JFrame {
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
         try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : getInstalledLookAndFeels()) {
+             for (javax.swing.UIManager.LookAndFeelInfo info : getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
                     setLookAndFeel(info.getClassName());
                     break;
@@ -285,18 +290,16 @@ public class InicioSistema extends javax.swing.JFrame {
         } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
             getLogger(InicioSistema.class.getName()).log(SEVERE, null, ex);
         }
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        
-        //</editor-fold>
-        //</editor-fold>
+            //</editor-fold>
+            //</editor-fold>
+            //</editor-fold>
+            //</editor-fold>
 
-        /* Create and display the form */
-        invokeLater(() -> {
-            new InicioSistema().setVisible(true);
-        });
+            //</editor-fold>
+            //</editor-fold>
+
+            /* Create and display the form */
+        
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
