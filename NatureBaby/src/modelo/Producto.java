@@ -5,6 +5,8 @@
  */
 package modelo;
 
+import java.beans.PropertyChangeListener;
+import java.beans.PropertyChangeSupport;
 import java.io.Serializable;
 import javax.persistence.Basic;
 import javax.persistence.Column;
@@ -13,6 +15,7 @@ import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
@@ -31,6 +34,9 @@ import javax.xml.bind.annotation.XmlRootElement;
     , @NamedQuery(name = "Producto.findByDescripcion", query = "SELECT p FROM Producto p WHERE p.descripcion = :descripcion")
     , @NamedQuery(name = "Producto.findByPrecio", query = "SELECT p FROM Producto p WHERE p.precio = :precio")})
 public class Producto implements Serializable {
+
+    @Transient
+    private PropertyChangeSupport changeSupport = new PropertyChangeSupport(this);
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -52,6 +58,15 @@ public class Producto implements Serializable {
     public Producto() {
     }
 
+    public Producto(Integer idProducto, String nombreProducto, Integer cantidad, String marca, String descripcion, Double precio) {
+        this.idProducto = idProducto;
+        this.nombreProducto = nombreProducto;
+        this.cantidad = cantidad;
+        this.marca = marca;
+        this.descripcion = descripcion;
+        this.precio = precio;
+    }
+    
     public Producto(Integer idProducto) {
         this.idProducto = idProducto;
     }
@@ -61,7 +76,9 @@ public class Producto implements Serializable {
     }
 
     public void setIdProducto(Integer idProducto) {
+        Integer oldIdProducto = this.idProducto;
         this.idProducto = idProducto;
+        changeSupport.firePropertyChange("idProducto", oldIdProducto, idProducto);
     }
 
     public String getNombreProducto() {
@@ -69,7 +86,9 @@ public class Producto implements Serializable {
     }
 
     public void setNombreProducto(String nombreProducto) {
+        String oldNombreProducto = this.nombreProducto;
         this.nombreProducto = nombreProducto;
+        changeSupport.firePropertyChange("nombreProducto", oldNombreProducto, nombreProducto);
     }
 
     public Integer getCantidad() {
@@ -77,7 +96,9 @@ public class Producto implements Serializable {
     }
 
     public void setCantidad(Integer cantidad) {
+        Integer oldCantidad = this.cantidad;
         this.cantidad = cantidad;
+        changeSupport.firePropertyChange("cantidad", oldCantidad, cantidad);
     }
 
     public String getMarca() {
@@ -85,7 +106,9 @@ public class Producto implements Serializable {
     }
 
     public void setMarca(String marca) {
+        String oldMarca = this.marca;
         this.marca = marca;
+        changeSupport.firePropertyChange("marca", oldMarca, marca);
     }
 
     public String getDescripcion() {
@@ -93,7 +116,9 @@ public class Producto implements Serializable {
     }
 
     public void setDescripcion(String descripcion) {
+        String oldDescripcion = this.descripcion;
         this.descripcion = descripcion;
+        changeSupport.firePropertyChange("descripcion", oldDescripcion, descripcion);
     }
 
     public Double getPrecio() {
@@ -101,7 +126,9 @@ public class Producto implements Serializable {
     }
 
     public void setPrecio(Double precio) {
+        Double oldPrecio = this.precio;
         this.precio = precio;
+        changeSupport.firePropertyChange("precio", oldPrecio, precio);
     }
 
     @Override
@@ -128,6 +155,16 @@ public class Producto implements Serializable {
     public String toString() {
         return "modelo.Producto[ idProducto=" + idProducto + " ]";
     }
+
+    public void addPropertyChangeListener(PropertyChangeListener listener) {
+        changeSupport.addPropertyChangeListener(listener);
+    }
+
+    public void removePropertyChangeListener(PropertyChangeListener listener) {
+        changeSupport.removePropertyChangeListener(listener);
+    }
     
 }
+
+
 

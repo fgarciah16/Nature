@@ -5,6 +5,8 @@
  */
 package modelo;
 
+import java.beans.PropertyChangeListener;
+import java.beans.PropertyChangeSupport;
 import java.io.Serializable;
 import javax.persistence.Basic;
 import javax.persistence.Column;
@@ -13,6 +15,7 @@ import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
@@ -33,6 +36,9 @@ import javax.xml.bind.annotation.XmlRootElement;
     , @NamedQuery(name = "Usuarios.findByNombreUsuario", query = "SELECT u FROM Usuarios u WHERE u.nombreUsuario = :nombreUsuario")
     , @NamedQuery(name = "Usuarios.findByContrase\u00f1a", query = "SELECT u FROM Usuarios u WHERE u.contrase\u00f1a = :contrase\u00f1a")})
 public class Usuarios implements Serializable {
+
+    @Transient
+    private PropertyChangeSupport changeSupport = new PropertyChangeSupport(this);
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -57,6 +63,17 @@ public class Usuarios implements Serializable {
     public Usuarios() {
     }
 
+    public Usuarios(Integer idUsuario, String nombre, String fechaNacimiento, String correo, String telefono, String sexo, String nombreUsuario, String contraseña) {
+        this.idUsuario = idUsuario;
+        this.nombre = nombre;
+        this.fechaNacimiento = fechaNacimiento;
+        this.correo = correo;
+        this.telefono = telefono;
+        this.sexo = sexo;
+        this.nombreUsuario = nombreUsuario;
+        this.contraseña = contraseña;
+    }
+    
     public Usuarios(Integer idUsuario) {
         this.idUsuario = idUsuario;
     }
@@ -66,7 +83,9 @@ public class Usuarios implements Serializable {
     }
 
     public void setIdUsuario(Integer idUsuario) {
+        Integer oldIdUsuario = this.idUsuario;
         this.idUsuario = idUsuario;
+        changeSupport.firePropertyChange("idUsuario", oldIdUsuario, idUsuario);
     }
 
     public String getNombre() {
@@ -74,7 +93,9 @@ public class Usuarios implements Serializable {
     }
 
     public void setNombre(String nombre) {
+        String oldNombre = this.nombre;
         this.nombre = nombre;
+        changeSupport.firePropertyChange("nombre", oldNombre, nombre);
     }
 
     public String getFechaNacimiento() {
@@ -82,7 +103,9 @@ public class Usuarios implements Serializable {
     }
 
     public void setFechaNacimiento(String fechaNacimiento) {
+        String oldFechaNacimiento = this.fechaNacimiento;
         this.fechaNacimiento = fechaNacimiento;
+        changeSupport.firePropertyChange("fechaNacimiento", oldFechaNacimiento, fechaNacimiento);
     }
 
     public String getCorreo() {
@@ -90,7 +113,9 @@ public class Usuarios implements Serializable {
     }
 
     public void setCorreo(String correo) {
+        String oldCorreo = this.correo;
         this.correo = correo;
+        changeSupport.firePropertyChange("correo", oldCorreo, correo);
     }
 
     public String getTelefono() {
@@ -98,7 +123,9 @@ public class Usuarios implements Serializable {
     }
 
     public void setTelefono(String telefono) {
+        String oldTelefono = this.telefono;
         this.telefono = telefono;
+        changeSupport.firePropertyChange("telefono", oldTelefono, telefono);
     }
 
     public String getSexo() {
@@ -106,7 +133,9 @@ public class Usuarios implements Serializable {
     }
 
     public void setSexo(String sexo) {
+        String oldSexo = this.sexo;
         this.sexo = sexo;
+        changeSupport.firePropertyChange("sexo", oldSexo, sexo);
     }
 
     public String getNombreUsuario() {
@@ -114,7 +143,9 @@ public class Usuarios implements Serializable {
     }
 
     public void setNombreUsuario(String nombreUsuario) {
+        String oldNombreUsuario = this.nombreUsuario;
         this.nombreUsuario = nombreUsuario;
+        changeSupport.firePropertyChange("nombreUsuario", oldNombreUsuario, nombreUsuario);
     }
 
     public String getContraseña() {
@@ -122,7 +153,9 @@ public class Usuarios implements Serializable {
     }
 
     public void setContraseña(String contraseña) {
+        String oldContraseña = this.contraseña;
         this.contraseña = contraseña;
+        changeSupport.firePropertyChange("contrase\u00f1a", oldContraseña, contraseña);
     }
 
     @Override
@@ -149,6 +182,15 @@ public class Usuarios implements Serializable {
     public String toString() {
         return "modelo.Usuarios[ idUsuario=" + idUsuario + " ]";
     }
+
+    public void addPropertyChangeListener(PropertyChangeListener listener) {
+        changeSupport.addPropertyChangeListener(listener);
+    }
+
+    public void removePropertyChangeListener(PropertyChangeListener listener) {
+        changeSupport.removePropertyChangeListener(listener);
+    }
     
 }
+
 

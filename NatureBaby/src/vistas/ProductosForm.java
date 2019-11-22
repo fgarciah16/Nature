@@ -76,7 +76,11 @@ public class ProductosForm extends javax.swing.JInternalFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+        bindingGroup = new org.jdesktop.beansbinding.BindingGroup();
 
+        NatureBabyPUEntityManager = java.beans.Beans.isDesignTime() ? null : javax.persistence.Persistence.createEntityManagerFactory("NatureBabyPU").createEntityManager();
+        productoQuery = java.beans.Beans.isDesignTime() ? null : NatureBabyPUEntityManager.createQuery("SELECT p FROM Producto p");
+        productoList = java.beans.Beans.isDesignTime() ? java.util.Collections.emptyList() : productoQuery.getResultList();
         jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -207,29 +211,18 @@ public class ProductosForm extends javax.swing.JInternalFrame {
         jPanel2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         tabla.setFont(new java.awt.Font("Candara", 0, 14)); // NOI18N
-        tabla.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "1", "2", "3", "4", "5"
-            }
-        ));
         tabla.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_NEXT_COLUMN);
         tabla.setSelectionBackground(new java.awt.Color(153, 0, 153));
+
+        org.jdesktop.swingbinding.JTableBinding jTableBinding = org.jdesktop.swingbinding.SwingBindings.createJTableBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, productoList, tabla);
+        bindingGroup.addBinding(jTableBinding);
+        jTableBinding.bind();
         tabla.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tablaMouseClicked(evt);
             }
         });
         jScrollPane1.setViewportView(tabla);
-        if (tabla.getColumnModel().getColumnCount() > 0) {
-            tabla.getColumnModel().getColumn(0).setPreferredWidth(40);
-            tabla.getColumnModel().getColumn(1).setPreferredWidth(70);
-            tabla.getColumnModel().getColumn(2).setPreferredWidth(70);
-            tabla.getColumnModel().getColumn(3).setPreferredWidth(200);
-            tabla.getColumnModel().getColumn(4).setPreferredWidth(200);
-        }
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -268,6 +261,8 @@ public class ProductosForm extends javax.swing.JInternalFrame {
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
+
+        bindingGroup.bind();
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -315,6 +310,7 @@ public class ProductosForm extends javax.swing.JInternalFrame {
     private javax.swing.JComboBox<String> ComboAlumno;
     private javax.swing.JComboBox<String> ComboDocente;
     private javax.swing.JComboBox<String> ComboGrupo;
+    private javax.persistence.EntityManager NatureBabyPUEntityManager;
     private javax.swing.JButton btnEliminar;
     private javax.swing.JButton btnGuardar;
     private javax.swing.JLabel jLabel2;
@@ -324,6 +320,9 @@ public class ProductosForm extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
+    private java.util.List<modelo.Producto> productoList;
+    private javax.persistence.Query productoQuery;
     private javax.swing.JTable tabla;
+    private org.jdesktop.beansbinding.BindingGroup bindingGroup;
     // End of variables declaration//GEN-END:variables
 }
