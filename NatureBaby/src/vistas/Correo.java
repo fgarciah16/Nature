@@ -1,8 +1,12 @@
 package vistas;
 
+import com.jtattoo.plaf.fast.FastLookAndFeel;
+import static java.awt.EventQueue.invokeLater;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Properties;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.activation.DataHandler;
 import javax.activation.FileDataSource;
 import javax.mail.BodyPart;
@@ -16,6 +20,7 @@ import javax.swing.JOptionPane;
 
 import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeMultipart;
+import javax.swing.UIManager;
 
 public class Correo extends javax.swing.JFrame {
 
@@ -270,7 +275,7 @@ public class Correo extends javax.swing.JFrame {
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
-        try {
+        /*try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
@@ -285,7 +290,7 @@ public class Correo extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(Correo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(Correo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
+        }*/
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -296,6 +301,25 @@ public class Correo extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
+        
+        try{
+            
+            Properties props = new Properties();
+            //props.put("logoString", "GRAN VALLE");
+            FastLookAndFeel.setCurrentTheme(props);
+            UIManager.setLookAndFeel("com.jtattoo.plaf.fast.FastLookAndFeel");
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(Correo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(Correo.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            Logger.getLogger(Correo.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            Logger.getLogger(Correo.class.getName()).log(Level.SEVERE, null, ex);
+            invokeLater(() -> {
+                new InicioSistema().setVisible(true);
+            });
+        }
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new Correo().setVisible(true);

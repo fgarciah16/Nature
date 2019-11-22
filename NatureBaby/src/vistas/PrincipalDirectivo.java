@@ -22,6 +22,7 @@ public class PrincipalDirectivo extends javax.swing.JFrame {
         this.setExtendedState(MAXIMIZED_BOTH);
         this.setExtendedState(MAXIMIZED_BOTH);
         this.setLocationRelativeTo(null);
+        
     }
 
     @SuppressWarnings("unchecked")
@@ -258,13 +259,13 @@ public class PrincipalDirectivo extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-        ProveedorForm Padre = new ProveedorForm();
-        centrarVista(Padre);
+        ProveedorForm Proovedor = new ProveedorForm();
+        centrarVista(Proovedor);
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
-        PedidosForm Docente = new PedidosForm();
-        centrarVista(Docente);
+        PedidosForm Pedido = new PedidosForm();
+        centrarVista(Pedido);
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 
     private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
@@ -285,9 +286,9 @@ public class PrincipalDirectivo extends javax.swing.JFrame {
 
     private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
         Correo lg = new Correo();
-        lg.setVisible(true);
+        lg.setVisible(true); 
         //        CorreoFrom correo = new CorreoFrom();
-        //        CentrarVentana(correo);
+         //     centrarVista(lg);
     }//GEN-LAST:event_jMenuItem6ActionPerformed
 
      private void cerrar(){
@@ -312,10 +313,6 @@ public class PrincipalDirectivo extends javax.swing.JFrame {
             fr.setMaximum(true);
             
             fr.setClosable(true);
-            //fr.setIconifiable(true);
-            //fr.setMaximizable(true);
-            //fr.setUI(null);
-            
             fr.show();
         } catch (PropertyVetoException ex) {
             Logger.getLogger(PrincipalDirectivo.class.getName()).log(Level.SEVERE, null, ex);
