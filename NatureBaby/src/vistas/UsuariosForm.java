@@ -75,6 +75,7 @@ public class UsuariosForm extends javax.swing.JInternalFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         tabla = new javax.swing.JTable();
 
+        setClosable(true);
         setTitle("MODULO USUARIOS");
         addInternalFrameListener(new javax.swing.event.InternalFrameListener() {
             public void internalFrameActivated(javax.swing.event.InternalFrameEvent evt) {
@@ -416,17 +417,19 @@ public class UsuariosForm extends javax.swing.JInternalFrame {
 //            JOptionPane.showMessageDialog(this, "Usuario registrado exitosamente");
 //
 //        }
+    
+        limpiarcampos();
     }
 
-    void limpiarcampos() {
-//        txtNombreCompleto.setText("");
-//        CalendarFecha.setCalendar(null);
-//        ComboSexo.setSelectedItem("Masculino");
-//        txtCorreo.setText("");
-//        txtTelefono.setText("");
-//        txtDireccion.setText("");
-//        txtNombreUs.setText("");
-//        txtContraseña.setText("");
+     void limpiarcampos() {
+        txtNombreCompleto.setText("");
+        CalendarFecha.setCalendar(null);
+        ComboSexo.setSelectedItem("Masculino");
+        txtCorreo.setText("");
+        txtTelefono.setText("");
+        txtDireccion.setText("");
+        txtNombreUs.setText("");
+        txtContraseña.setText("");
     }
 
 //Funcionando correctamente
