@@ -17,6 +17,7 @@ public class InicioSistema extends javax.swing.JFrame {
         initComponents();
         transparenciaButton();
         this.setLocationRelativeTo(null);
+        
     }
 
     /**

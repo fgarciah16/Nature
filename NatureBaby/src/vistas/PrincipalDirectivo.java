@@ -3,6 +3,7 @@ package vistas;
 import com.jtattoo.plaf.fast.FastLookAndFeel;
 import java.awt.Dimension;
 import static java.awt.EventQueue.invokeLater;
+import java.awt.Toolkit;
 import java.beans.PropertyVetoException;
 import java.util.Properties;
 import java.util.logging.Level;
@@ -22,7 +23,6 @@ public class PrincipalDirectivo extends javax.swing.JFrame {
         this.setExtendedState(MAXIMIZED_BOTH);
         this.setExtendedState(MAXIMIZED_BOTH);
         this.setLocationRelativeTo(null);
-        
     }
 
     @SuppressWarnings("unchecked")

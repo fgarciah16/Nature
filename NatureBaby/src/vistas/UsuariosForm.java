@@ -9,6 +9,7 @@ import javax.swing.table.DefaultTableModel;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import static vistas.PrincipalDirectivo.VentanaPrincipal;
 import javax.swing.JLabel;
 import javax.swing.table.TableCellRenderer;
 
@@ -74,8 +75,24 @@ public class UsuariosForm extends javax.swing.JInternalFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         tabla = new javax.swing.JTable();
 
-        setClosable(true);
         setTitle("MODULO USUARIOS");
+        addInternalFrameListener(new javax.swing.event.InternalFrameListener() {
+            public void internalFrameActivated(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameClosed(javax.swing.event.InternalFrameEvent evt) {
+                formInternalFrameClosed(evt);
+            }
+            public void internalFrameClosing(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameDeactivated(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameDeiconified(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameIconified(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameOpened(javax.swing.event.InternalFrameEvent evt) {
+            }
+        });
 
         jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
@@ -361,6 +378,13 @@ public class UsuariosForm extends javax.swing.JInternalFrame {
 //        limpiarcampos();
 
     }//GEN-LAST:event_btnAgregarActionPerformed
+
+    private void formInternalFrameClosed(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameClosed
+        // TODO add your handling code here:
+        
+         VentanaPrincipal.removeAll();
+        VentanaPrincipal.updateUI();
+    }//GEN-LAST:event_formInternalFrameClosed
     //Funcionando correctamente.
     void agregar() {
 //        if (txtNombreCompleto.getText().equals("") /*& txtFecha.getText().equals("")*/
