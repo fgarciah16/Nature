@@ -26,6 +26,9 @@ public class ProductoJpaController implements Serializable {
     
     private EntityManagerFactory emf = Persistence.createEntityManagerFactory("NatureBabyPU");
 
+    public ProductoJpaController() {
+    }
+
     public ProductoJpaController(EntityManagerFactory emf) {
         this.emf = emf;
     }
@@ -145,5 +148,6 @@ public class ProductoJpaController implements Serializable {
     }
     
 }
+
 
 
